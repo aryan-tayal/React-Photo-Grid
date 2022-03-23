@@ -33,10 +33,10 @@ const PhotoGrid = ({ photoNumber }) => {
           src={p.urls.raw}
           key={p.id}
           user={p.user.name}
-          top={`${Math.floor(Math.random() * 80)}%`}
-          left={`${Math.floor(Math.random() * 80)}%`}
-          height={`${Math.floor(Math.random() * 300)+100}px`}
-          width={`${Math.floor(Math.random() * 300)+100}px`}
+          top={`${Math.floor(Math.random() * 12)}%`}
+          left={`${Math.floor(Math.random() * 12)}%`}
+          height={`${Math.floor(Math.random() * 200)+200}px`}
+          width={`${Math.floor(Math.random() * 200)+200}px`}
         />
       ))}
     </div>

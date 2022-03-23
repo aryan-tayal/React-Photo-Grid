@@ -1,5 +1,8 @@
 .Photo {
-  position: absolute;
+  /* position: absolute; */
+  display: inline-block;
+  position: relative;
+    cursor:zoom-in;
 }
 .Photo img {
   height: 100%;
