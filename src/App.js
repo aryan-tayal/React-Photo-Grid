@@ -10,29 +10,24 @@ App.defaultProps = {
 
 function App({ photoNumber }) {
   const [photos, setPhotos] = useState([]);
+
   const createPhotos = async () => {
     let photos = [];
     const getImg = async () => {
-      while (photos.length < photoNumber) {
-        const res = await axios.get(
-          "https://api.unsplash.com/photos/random/?client_id=-NHOwRYeg475kTXWwzhOGAIUF4eQyp8kW8pnjkL-4Lg",
-          {
-            params: {
-              query: "wallpaper",
-              orientation: "squarish",
-            },
-          }
-        );
-        photos.push({
-          key: uuid(),
-          src: res.data.urls.raw,
-          alt: res.data.alt_description,
-          user: res.data.user.name,
-        });
-      }
+      const res = await axios.get(
+        "https://api.unsplash.com/search/photos/?client_id=-NHOwRYeg475kTXWwzhOGAIUF4eQyp8kW8pnjkL-4Lg",
+        {
+          params: {
+            query: "space",
+            orientation: "squarish",
+            per_page: photoNumber,
+          },
+        }
+      );
+      setPhotos([...res.data.results]);
     };
+
     await getImg();
-    setPhotos([...photos]);
   };
   useEffect(() => {
     if (photos.length === 0) createPhotos();
@@ -41,7 +36,12 @@ function App({ photoNumber }) {
   return (
     <>
       {photos.map((p) => (
-        <Photo {...p} />
+        <Photo
+          alt={p.alt_description}
+          src={p.urls.raw}
+          key={p.id}
+          user={p.user.name}
+        />
       ))}
     </>
   );
