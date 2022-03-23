@@ -1,11 +1,8 @@
 import React from "react";
-import "./Photo.css"
+import "./Photo.css";
 
 const Photo = ({ src, alt, user }) => {
-    console.log('hi')
-
   return (
-      
     <div className="Photo">
       <img src={src} alt={alt} />
       <p>
