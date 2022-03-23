@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Photo from "./Photo.js";
 import axios from "axios";
-import './PhotoGrid.css'
+import "./PhotoGrid.css";
 
 const PhotoGrid = ({ photoNumber }) => {
   const [photos, setPhotos] = useState([]);
@@ -12,9 +12,9 @@ const PhotoGrid = ({ photoNumber }) => {
         "https://api.unsplash.com/search/photos/?client_id=-NHOwRYeg475kTXWwzhOGAIUF4eQyp8kW8pnjkL-4Lg",
         {
           params: {
-            query: "space",
-            orientation: "squarish",
+            query: "nasa",
             per_page: photoNumber,
+            orientation:'squarish',
           },
         }
       );
@@ -34,10 +34,9 @@ const PhotoGrid = ({ photoNumber }) => {
           src={p.urls.raw}
           key={p.id}
           user={p.user.name}
-          top={`${Math.floor(Math.random()*80)}%`}
-          left={`${Math.floor(Math.random()*80)}%`}
+          top={`${Math.floor(Math.random() * 80)}%`}
+          left={`${Math.floor(Math.random() * 80)}%`}
         />
-
       ))}
     </div>
   );

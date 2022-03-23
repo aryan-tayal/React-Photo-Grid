@@ -5,9 +5,7 @@ const Photo = ({ src, alt, user, top, left }) => {
   return (
     <div className="Photo" style={{ top: top, left: left }}>
       <img src={src} alt={alt} />
-      <p>
-        By <span>{user}</span> from <span>Unsplash</span>
-      </p>
+   
     </div>
   );
 };

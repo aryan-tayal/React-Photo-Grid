@@ -7,15 +7,3 @@
   height: 100%;
   width: 100%;
 }
-.Photo p {
-  position: absolute;
-  background-color: #ffffff22;
-  border: 1px solid white;
-  color:#fff;
-  backdrop-filter: blur(7px);
-  /* z-index: 2; */
-  width: calc(100% - 2px);
-  padding: 10px 0;
-  bottom: -15px;
-  text-align: center;
-}
