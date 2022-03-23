@@ -1,7 +1,7 @@
 .Photo {
   width: 300px;
   height: 300px;
-  position: relative;
+  position: absolute;
 }
 .Photo img {
   height: 100%;
@@ -13,7 +13,7 @@
   border: 1px solid white;
   color:#fff;
   backdrop-filter: blur(7px);
-  z-index: 2;
+  /* z-index: 2; */
   width: calc(100% - 2px);
   padding: 10px 0;
   bottom: -15px;
