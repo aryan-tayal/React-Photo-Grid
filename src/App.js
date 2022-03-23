@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { v4 as uuid } from "uuid";
 import Photo from "./Photo.js";
 import axios from "axios";
 import "./App.css";
@@ -12,7 +11,6 @@ function App({ photoNumber }) {
   const [photos, setPhotos] = useState([]);
 
   const createPhotos = async () => {
-    let photos = [];
     const getImg = async () => {
       const res = await axios.get(
         "https://api.unsplash.com/search/photos/?client_id=-NHOwRYeg475kTXWwzhOGAIUF4eQyp8kW8pnjkL-4Lg",
