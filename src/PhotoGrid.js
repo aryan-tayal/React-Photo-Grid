@@ -14,7 +14,6 @@ const PhotoGrid = ({ photoNumber }) => {
           params: {
             query: "nasa",
             per_page: photoNumber,
-            orientation:'squarish',
           },
         }
       );
@@ -36,6 +35,8 @@ const PhotoGrid = ({ photoNumber }) => {
           user={p.user.name}
           top={`${Math.floor(Math.random() * 80)}%`}
           left={`${Math.floor(Math.random() * 80)}%`}
+          height={`${Math.floor(Math.random() * 300)+100}px`}
+          width={`${Math.floor(Math.random() * 300)+100}px`}
         />
       ))}
     </div>

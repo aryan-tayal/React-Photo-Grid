@@ -2,7 +2,7 @@ import PhotoGrid from "./PhotoGrid.js";
 import "./App.css";
 
 App.defaultProps = {
-  photoNumber: 5,
+  photoNumber: 10,
 };
 
 function App({ photoNumber }) {
