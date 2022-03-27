@@ -1,11 +1,65 @@
 .Photo {
-  /* position: absolute; */
   display: inline-block;
   position: relative;
-    cursor:zoom-in;
+  cursor: zoom-in;
 }
-.Photo img {
+.Photo > img {
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+.Photo-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  opacity: 0;
+  transform: scale(0.1);
+  transition: transform 0.6s ease-in-out;
+  background-color: #000000aa;
+  backdrop-filter: blur(0.5px);
+}
+.Photo-overlay.show {
+  opacity: 1;
+  z-index: 10;
+  transform: scale(50);
+}
+.Photo-large {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0.1);
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+  cursor:default;
+}
+.Photo-large.show {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 25;
+}
+.Photo-large > img {
+  height: 70%;
+}
+.Photo-large > p {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.Photo-large > p > span {
+  font-weight: 900;
+  font-size: 1.4rem;
+}
+.Photo-large > i {
+  font-size: 2rem;
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  cursor: pointer;
 }

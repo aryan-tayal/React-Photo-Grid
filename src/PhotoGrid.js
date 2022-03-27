@@ -5,14 +5,13 @@ import "./PhotoGrid.css";
 
 const PhotoGrid = ({ photoNumber }) => {
   const [photos, setPhotos] = useState([]);
-
   const createPhotos = async () => {
     const getImg = async () => {
       const res = await axios.get(
         "https://api.unsplash.com/search/photos/?client_id=-NHOwRYeg475kTXWwzhOGAIUF4eQyp8kW8pnjkL-4Lg",
         {
           params: {
-            query: "nasa",
+            query: "space",
             per_page: photoNumber,
           },
         }
@@ -35,8 +34,9 @@ const PhotoGrid = ({ photoNumber }) => {
           user={p.user.name}
           top={`${Math.floor(Math.random() * 12)}%`}
           left={`${Math.floor(Math.random() * 12)}%`}
-          height={`${Math.floor(Math.random() * 200)+200}px`}
-          width={`${Math.floor(Math.random() * 200)+200}px`}
+          height={`${Math.floor(Math.random() * 200) + 200}px`}
+          width={`${Math.floor(Math.random() * 200) + 200}px`}
+      
         />
       ))}
     </div>
