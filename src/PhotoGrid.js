@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import Photo from "./Photo.js";
 import axios from "axios";
 import "./PhotoGrid.css";
+import "./Loader.css";
 
 const PhotoGrid = ({ photoNumber }) => {
   const [photos, setPhotos] = useState([]);
+  const [loading, setLoading] = useState(true);
   const createPhotos = async () => {
     const getImg = async () => {
       const res = await axios.get(
@@ -19,6 +21,7 @@ const PhotoGrid = ({ photoNumber }) => {
       setPhotos([...res.data.results]);
     };
     await getImg();
+    setLoading(false);
   };
   useEffect(() => {
     if (photos.length === 0) createPhotos();
@@ -26,6 +29,12 @@ const PhotoGrid = ({ photoNumber }) => {
   }, []);
   return (
     <div className="PhotoGrid">
+      <div id="loader" className={!loading && 'hide'}>
+        <div className="orbit"></div>
+        <div className="orbit"></div>
+        <div className="orbit"></div>
+        <div id="main_circle"></div>
+      </div>
       {photos.map((p) => (
         <Photo
           alt={p.alt_description}
@@ -36,7 +45,7 @@ const PhotoGrid = ({ photoNumber }) => {
           left={`${Math.floor(Math.random() * 12)}%`}
           height={`${Math.floor(Math.random() * 200) + 200}px`}
           width={`${Math.floor(Math.random() * 200) + 200}px`}
-      
+          setLoading
         />
       ))}
     </div>

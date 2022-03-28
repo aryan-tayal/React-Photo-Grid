@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Photo.css";
 
-const Photo = ({ src, alt, top, left, height, width, user }) => {
+const Photo = ({ src, alt, top, left, height, width, user, setLoading }) => {
   const [largen, setLargen] = useState(false);
   return (
     <div className="Photo" style={{ top, left, height, width }}>
@@ -19,7 +19,12 @@ const Photo = ({ src, alt, top, left, height, width, user }) => {
           Image by <span>{user}</span> from <span>Unsplash.com</span>
         </p>
       </div>
-      <img src={src} alt={alt} onClick={() => setLargen(true)} />
+      <img
+        src={src}
+        alt={alt}
+        onClick={() => setLargen(true)}
+        onLoad={() => setLoading(false)}
+      />
     </div>
   );
 };
